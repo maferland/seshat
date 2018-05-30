@@ -14,8 +14,8 @@ Given a need to easily track and search Github issues, create a web app that all
 - Handle all relevant cases
 - Provide a clear explanation of your approach and design choices (while submitting your Pull Request)
 - Provide a proper `README.md`:<br/>
-• Explaing how to setup and run your code<br/>
-• Including all informations you feel that may be useful for a seamless coworker on-boarding
+- Explaing how to setup and run your code<br/>
+- Including all informations you feel that may be useful for a seamless coworker on-boarding
 - Be publicly accessible (deploy it on Heroku or your favorite host)
 - Have a beautiful name for your app ;)
 
@@ -29,6 +29,6 @@ We will then write a review for your pull request!
 
 ### Bonus
 
-- Allow a visitor to create an account
+- Have a great UX / UI
 - Testing of your web app
 - Add whatever you think is necessary to make the app awesome ✨
