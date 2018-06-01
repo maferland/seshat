@@ -14,7 +14,7 @@ const query = async (request) => {
     .catch(() => false);
 };
 
-const getRepository = async (name, owner) => {
+const fetchRepository = async (name, owner) => {
   const request = `{
     repository(name: "${name}", owner: "${owner}") {
       name
@@ -26,9 +26,9 @@ const getRepository = async (name, owner) => {
   return query(request);
 };
 
-const getIssues = async () => {
+const fetchIssues = async () => {
   const request = {};
   return query(request);
 };
 
-export { getRepository, getIssues };
+export { fetchRepository, fetchIssues };

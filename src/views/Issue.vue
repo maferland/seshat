@@ -1,15 +1,12 @@
 <template>
-  <div>
-    <add-repository/>
+  <div class='container'>
   </div>
 </template>
 
 <script>
-import AddRepository from '../components/AddRepository';
 
 export default {
-  name: 'Home',
-  components: { AddRepository },
+  name: 'Issue',
 };
 </script>
 

@@ -4,14 +4,14 @@
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
           <router-link
-            :to="{name: 'ViewRepositories'}"
+            :to="{name: 'Repositories'}"
             class="pure-menu-link">
-            View Repositories
+            Manage Repositories
           </router-link>
         </li>
         <li class="pure-menu-item">
           <router-link
-            :to="{name: 'Search issues'}"
+            :to="{name: 'Issues'}"
             class="pure-menu-link">
             Search Issues
           </router-link>
@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .pure-menu {
     display: flex;
     justify-content: space-between;
