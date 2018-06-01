@@ -1,27 +1,34 @@
-# seshat
+![Fizzer](logo.png)
 
-> Track and search github issues
+# Test
+Given a need to easily track and search Github issues, create a web app that allows anyone to search for issues on selected Github repositories.
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
+### Specs
 
-# serve with hot reload at localhost:8080
-npm run dev
+- As a visitor I can add a repository to track to the app
+- As a visitor I can remove a tracked repository from the app
+- As a visitor I can search for issues containing the search term (in the title) for the tracked repositories
 
-# build for production with minification
-npm run build
+### Prerequisites
+- Handle all relevant cases
+- Provide a clear explanation of your approach and design choices (while submitting your Pull Request)
+- Provide a proper `README.md`:<br/>
+- Explaing how to setup and run your code<br/>
+- Including all informations you feel that may be useful for a seamless coworker on-boarding
+- Be publicly accessible (deploy it on Heroku or your favorite host)
+- Have a beautiful name for your app ;)
 
-# build for production and view the bundle analyzer report
-npm run build --report
+### Workflow
+- Use the framework of your choice between React, Angular or Vue.js
+- Create a new branch
+- Commit and push to this branch
+- Submit a pull request once you have finished
 
-# run unit tests
-npm run unit
+We will then write a review for your pull request!
 
-# run all tests
-npm test
-```
+### Bonus
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- Have a great UX / UI
+- Testing of your web app
+- Add whatever you think is necessary to make the app awesome ✨
