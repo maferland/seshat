@@ -4,27 +4,26 @@
         <legend>
           <h2>Search for your issues</h2>
         </legend>
-        <span class="pure-control-group">
+        <span class="pure-control-group search-bar">
             <input
               id="query"
               name="query"
               type="text"
               v-validate="'required'"
-              v-model="owner">
+              v-model="query">
         </span>
-        <div class="pure-controls">
+        <span class="pure-controls">
           <a
             @click="searchIssue"
             class="pure-button pure-button-primary">
             Search
           </a>
-        </div>
+        </span>
       </fieldset>
     </form>
 </template>
 
 <script>
-import { fetchIssue } from '@/services/githubApi';
 import EventBus from '@/events/eventBus';
 
 export default {
@@ -46,4 +45,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .search-bar {
+    width: 50%;
+
+    @media screen and (max-width: 600px) {
+      width: 75%;
+    }
+  }
 </style>

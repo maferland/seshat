@@ -26,9 +26,36 @@ const fetchRepository = async (name, owner) => {
   return query(request);
 };
 
-const fetchIssues = async () => {
-  const request = {};
+const buildSearchRequest = (repositories, searchQuery) => {
+  const request = [];
+  repositories.forEach((repository) => {
+    const key = repository.nameWithOwner.replace('/', '');
+    const newRequest = `{
+      ${key}: search(first: 5, type: ISSUE, query: "repo:${repository.nameWithOwner} ${searchQuery}") {
+        nodes {
+          ... on Issue {
+            title
+            url
+            labels(first: 5) {
+              edges {
+                node {
+                  name
+                  color
+                }
+              }
+            }
+          }
+        }
+      }
+    }`;
+    request.push(newRequest);
+  });
+  return request.join();
+};
+
+const fetchIssue = async (repositories, searchQuery) => {
+  const request = buildSearchRequest(repositories, searchQuery);
   return query(request);
 };
 
-export { fetchRepository, fetchIssues };
+export { fetchRepository, fetchIssue };

@@ -14,9 +14,19 @@
       <h3 class="about--title">Manage</h3>
         <div class="about--sub-container">
           <span class="about--description">
-            Tracking issues accross multiple projects is easy with Seshat simple interace.
+            Managing multiple open-source projects is easy with Seshat simple interace.
           </span>
           <img class="about--img" src="../assets/statistics.png"/>
+        </div>
+    </div>
+
+    <div class="about">
+      <h3 class="about--title">Monitor</h3>
+        <div class="about--sub-container">
+          <span class="about--description">
+            Seshat allows you to stay up-to-date with your maintainer duty.
+          </span>
+          <img class="about--img" src="../assets/heartbeat.png"/>
         </div>
     </div>
 
@@ -24,7 +34,7 @@
       <h3 class="about--title">Empower</h3>
       <div class="about--sub-container">
         <span class="about--description">
-          Seshat can also be used as an issue search engine to empower your development.
+          Make your development proccess faster with the Seshat search tool.
         </span>
         <img class="about--img" src="../assets/rocket.png"/>
       </div>

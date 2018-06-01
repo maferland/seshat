@@ -62,13 +62,15 @@ export default {
       const result = await this.$validator.validate();
       if (!result) { return; }
 
-      const repository = await fetchRepository(this.name, this.owner);
-      if (repository && repository.errors) {
-        EventBus.$emit('onSnackbarDisplayed', 'This repository does not exists');
+      const response = await fetchRepository(this.name, this.owner);
+      if (response && response.errors) {
+        EventBus.$emit('onSnackbarDisplayed', `Could not find ${this.owner}/${this.name}`);
         return;
       }
 
-      EventBus.$emit('onRepositoryAdded', repository.data.repository);
+      const repository = response.data.repository;
+      EventBus.$emit('onRepositoryAdded', repository);
+      EventBus.$emit('onSnackbarDisplayed', `Added ${repository.nameWithOwner}`);
     },
   },
 };

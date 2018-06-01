@@ -6,14 +6,14 @@
           <router-link
             :to="{name: 'Repositories'}"
             class="pure-menu-link">
-            Manage Repositories
+            Repositories
           </router-link>
         </li>
         <li class="pure-menu-item">
           <router-link
             :to="{name: 'Issues'}"
             class="pure-menu-link">
-            Search Issues
+            Issues
           </router-link>
         </li>
     </ul>
@@ -30,6 +30,10 @@ export default {
   .pure-menu {
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    height:50px;
+    background-color: rgba(255,255,255,.9);
   }
 
   .pure-menu-heading {
@@ -42,5 +46,9 @@ export default {
   .pure-menu-link {
     display: flex;
     align-items: center;
+  }
+
+  .pure-menu-item {
+    display: inline-flex;
   }
 </style>

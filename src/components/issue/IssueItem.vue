@@ -4,8 +4,6 @@
 </template>
 
 <script>
-import EventBus from '@/events/eventBus';
-
 export default {
   name: 'issue-item',
   props: ['issue'],

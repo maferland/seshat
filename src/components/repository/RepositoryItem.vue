@@ -35,9 +35,22 @@ export default {
     margin: 5vh 4vw;
 
     &--title {
-      color: rgba(44, 62, 80, .8);
+      color: rgba(44, 62, 80, 0.8);
       font-weight: 600;
       font-size: 30px;
+    }
+
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
     }
   }
 

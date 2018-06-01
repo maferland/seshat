@@ -11,7 +11,7 @@ import ListIssue from '@/components/issue/ListIssue';
 
 export default {
   name: 'Issue',
-  components: { SearchIssue, ListIssue }
+  components: { SearchIssue, ListIssue },
 };
 </script>
 
