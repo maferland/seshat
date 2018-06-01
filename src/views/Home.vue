@@ -69,6 +69,7 @@ export default {
 .container--about {
   padding-top: 0;
   display: flex;
+  justify-content: space-around;
 
   @media screen and (max-width: 600px) {
     flex-flow: column;
