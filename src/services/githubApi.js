@@ -1,3 +1,5 @@
+import githubConfig from '@/helpers/githubConfig';
+
 const endpoint = 'https://api.github.com/graphql';
 
 const query = async (request) => {
@@ -6,7 +8,7 @@ const query = async (request) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'bearer 792dfc952b33de598e9d2e074f5b9f67c7ece0ba',
+      Authorization: `bearer ${githubConfig.apiKey}`,
     },
     body,
   })
@@ -31,11 +33,12 @@ const buildSearchRequest = (repositories, searchQuery) => {
   repositories.forEach((repository) => {
     const key = repository.nameWithOwner.replace('/', '');
     const newRequest = `{
-      ${key}: search(first: 5, type: ISSUE, query: "repo:${repository.nameWithOwner} ${searchQuery}") {
+      ${key}: search(first: 10, type: ISSUE, query: "repo:${repository.nameWithOwner} ${searchQuery}") {
         nodes {
           ... on Issue {
             title
             url
+            closed
             labels(first: 5) {
               edges {
                 node {

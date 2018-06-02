@@ -6,6 +6,17 @@
       <p class="hero--sub-title">
         The all-in-one Github's issues aggregator
       </p>
+      <p>
+          <router-link
+              :to="{name: 'Login'}"
+              class="pure-button pure-button-primary">
+              Sign up - It's free
+          </router-link>
+      </p>
+      <p>
+        Already using Seshat?
+        <router-link :to="{name: 'Login'}" class='link'>Log in</router-link>
+      </p>
     </div>
   </div>
 
@@ -64,7 +75,7 @@ export default {
 
   &--overlay {
     height: 100%;
-    background-color: rgba(44, 62, 80, 0.8);
+    background-color: rgba(44, 62, 80, 0.7);
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -102,5 +113,21 @@ export default {
     justify-content: space-evenly;
     align-items: center;
   }
+}
+
+.pure-button {
+  border: #FFF 1px solid;
+  background-color: transparent;
+}
+
+.pure-button:hover {
+  border: #FFF 1px solid;
+  background: #FFF;
+  color: rgba(44, 62, 80, .8);
+}
+
+.link {
+  text-decoration: underline;
+  color: #FFF;
 }
 </style>

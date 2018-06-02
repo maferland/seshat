@@ -4,10 +4,14 @@ import Home from '@/views/Home';
 import Repository from '@/views/Repository';
 import Issue from '@/views/Issue';
 
+import Login from '@/components/ui/Login';
+import LoginSuccess from '@/components/ui/LoginSuccess';
+
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   linkActiveClass: 'pure-menu-selected',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -15,14 +19,28 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
+    {
+      path: '/success',
+      name: 'Success',
+      component: LoginSuccess,
+    },
+    {
       path: '/repositories',
       name: 'Repositories',
+      secure: true,
       component: Repository,
     },
     {
       path: '/issue',
       name: 'Issues',
+      secure: true,
       component: Issue,
     },
   ],
 });
+
+export default router;

@@ -16,6 +16,19 @@
             Issues
           </router-link>
         </li>
+        <li class="pure-menu-item">
+          <a @click="signOut"
+            class="pure-menu-link">
+            Log out
+          </a>
+        </li>
+        <li class="pure-menu-item">
+          <router-link
+            :to="{name: 'Login'}"
+            class="pure-menu-link">
+            Sign in
+          </router-link>
+        </li>
     </ul>
 </div>
 </template>

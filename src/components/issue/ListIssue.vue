@@ -7,7 +7,7 @@
       <p>We couldn’t find any issues matching {{ query }}.</p>
     </div>
     <issue-item v-for="issue in issues"
-        :key="issue.id"
+        :key="issue.url"
         :issue="issue">
     </issue-item>
   </form>
@@ -48,10 +48,15 @@ export default {
         return;
       }
 
-      searchQuery.data.forEach(repository => {
-        if(!repository.nodes) { return; }
-        this.issues.push(...repository.nodes)
+      const data = response.data;
+      const newIssues = [];
+      Object.keys(data).forEach((repository) => {
+        const issues = data[repository];
+        if (!issues.nodes) { return; }
+        const validIssues = issues.nodes.filter(issue => Object.keys(issue).length !== 0);
+        newIssues.push(...validIssues);
       });
+      this.issues = newIssues;
     },
   },
   computed: {

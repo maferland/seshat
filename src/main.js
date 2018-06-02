@@ -3,10 +3,13 @@
 import 'purecss';
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
+import firebase from 'firebase';
 import App from './App';
 import router from './router';
 
-Vue.config.productionTip = false;
+import config from './helpers/firebaseConfig';
+
+Vue.config.productionTip = true;
 
 Vue.use(VeeValidate, {
   events: '',
@@ -18,4 +21,15 @@ new Vue({
   router,
   components: { App },
   template: '<App/>',
+  created() {
+    firebase.initializeApp(config);
+    firebase.auth().onAuthStateChanged((user) => {
+/*       if (user) {
+        this.$router.push('/success');
+      } else {
+        this.$router.push('/login');
+      } */
+    });
+  },
+  render: h => h(App),
 });
