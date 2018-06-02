@@ -6,17 +6,29 @@
       <p class="hero--sub-title">
         The all-in-one Github's issues aggregator
       </p>
-      <p>
-          <router-link
-              :to="{name: 'Login'}"
-              class="pure-button pure-button-primary">
-              Sign up - It's free
-          </router-link>
-      </p>
-      <p>
-        Already using Seshat?
-        <router-link :to="{name: 'Login'}" class='link'>Log in</router-link>
-      </p>
+
+      <span v-if="logged">
+        <p>
+            <router-link
+                :to="{name: 'Repositories'}"
+                class="pure-button pure-button-primary">
+                My repositories
+            </router-link>
+        </p>
+      </span>
+      <span v-else>
+        <p>
+            <router-link
+                :to="{name: 'Login'}"
+                class="pure-button pure-button-primary">
+                Sign up - It's free
+            </router-link>
+        </p>
+        <p>
+          Already using Seshat?
+          <router-link :to="{name: 'Login'}" class='link'>Log in</router-link>
+        </p>
+      </span>
     </div>
   </div>
 
@@ -55,8 +67,20 @@
 </template>
 
 <script>
+import EventBus from '@/events/eventBus';
+
 export default {
   name: 'Home',
+  data() {
+    return {
+      logged: false,
+    };
+  },
+  created() {
+    EventBus.$on('onAuthStateChanged', (user) => {
+      this.logged = !!user;
+    });
+  },
 };
 </script>
 

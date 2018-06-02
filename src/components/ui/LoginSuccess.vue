@@ -25,6 +25,8 @@ export default {
     };
   },
   created() {
+    // eslint-disable-next-line
+    console.log('CREATED');
     this.user = firebase.auth().currentUser;
     if (this.user) {
       this.name = this.user.displayName;

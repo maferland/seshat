@@ -29,13 +29,13 @@ const router = new Router({
       component: LoginSuccess,
     },
     {
-      path: '/repositories',
+      path: '#repositories',
       name: 'Repositories',
       secure: true,
       component: Repository,
     },
     {
-      path: '/issue',
+      path: '#issues',
       name: 'Issues',
       secure: true,
       component: Issue,

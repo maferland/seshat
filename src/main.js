@@ -4,6 +4,7 @@ import 'purecss';
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
 import firebase from 'firebase';
+import EventBus from '@/events/eventBus';
 import App from './App';
 import router from './router';
 
@@ -24,11 +25,9 @@ new Vue({
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
-/*       if (user) {
-        this.$router.push('/success');
-      } else {
-        this.$router.push('/login');
-      } */
+      // eslint-disable-next-line
+      console.log('state changed');
+      EventBus.$emit('onAuthStateChanged', user);
     });
   },
   render: h => h(App),
