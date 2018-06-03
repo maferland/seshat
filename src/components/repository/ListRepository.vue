@@ -17,6 +17,7 @@
 <script>
 import EventBus from '@/events/eventBus';
 import RepositoryItem from '@/components/repository/RepositoryItem';
+import * as databaseApi from '@/services/databaseApi';
 
 export default {
   name: 'list-repository',
@@ -27,18 +28,22 @@ export default {
     };
   },
   created() {
+    this.initRepositories();
     EventBus.$on('onRepositoryAdded', this.handleAddRepository);
     EventBus.$on('onRepositoryRemoved', this.handleRemoveRepository);
   },
   methods: {
     handleAddRepository(repository) {
-      this.repositories.push(repository);
+      databaseApi.addRepository(repository);
     },
     handleRemoveRepository(repository) {
-      const nameWithOwner = repository.nameWithOwner;
-      EventBus.$emit('onSnackbarDisplayed', `Deleted ${nameWithOwner}`);
-      this.repositories = this.repositories.filter(r =>
-        r.nameWithOwner !== nameWithOwner);
+      databaseApi.deleteRepository(repository.nameWithOwner);
+    },
+    initRepositories() {
+      databaseApi.listenRepository((snapshot) => {
+        const val = snapshot.val();
+        this.repositories = val ? val.repository : [];
+      });
     },
   },
 };

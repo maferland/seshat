@@ -4,7 +4,7 @@
       <h2>Related issues:</h2>
     </legend>
     <div v-if="issues.length === 0" class="missing">
-      <p>We couldn’t find any issues matching {{ query }}.</p>
+      <p>We couldn’t find any issues matching {{ queryMessage }}.</p>
     </div>
     <issue-item v-for="issue in issues"
         :key="issue.url"
@@ -17,6 +17,7 @@
 import EventBus from '@/events/eventBus';
 import IssueItem from '@/components/issue/IssueItem';
 import { fetchIssue } from '@/services/githubApi';
+import { listenRepository } from '@/services/databaseApi';
 
 export default {
   name: 'list-issue',
@@ -24,31 +25,36 @@ export default {
   data() {
     return {
       issues: [],
+      repositories: [],
       searchQuery: '',
     };
   },
   created() {
-    EventBus.$on('onIssueSearched', this.searchIssue);
+    EventBus.$on('onIssueSearched', (searchQuery) => {
+      this.searchQuery = searchQuery;
+      this.searchIssue();
+    });
+
+    this.init();
   },
   beforeDestroy() {
     EventBus.$off('onIssueSearched');
   },
   methods: {
-    async searchIssue(searchQuery) {
-      this.searchQuery = searchQuery;
-      const repo = [{
-        name: 'vue',
-        owner: 'vuejs',
-        nameWithOwner: 'vuejs/vue',
-      }];
-
-      const response = await fetchIssue(repo, searchQuery);
+    async init() {
+      await this.initRepository();
+      this.searchIssue('');
+    },
+    async searchIssue() {
+      const response = await fetchIssue(this.repositories, this.searchQuery);
 
       if (response && response.errors) {
         return;
       }
 
-      const data = response.data;
+      this.issues = this.parseIssues(response.data);
+    },
+    parseIssues(data) {
       const newIssues = [];
       Object.keys(data).forEach((repository) => {
         const issues = data[repository];
@@ -56,11 +62,22 @@ export default {
         const validIssues = issues.nodes.filter(issue => Object.keys(issue).length !== 0);
         newIssues.push(...validIssues);
       });
-      this.issues = newIssues;
+      return newIssues;
+    },
+    initRepository() {
+      listenRepository((snapshot) => {
+        const val = snapshot.val();
+        this.repositories = val ?
+          this.arrayify(val.repository) : {};
+      });
+    },
+    arrayify(repositories) {
+      return Object.keys(repositories)
+        .map(key => repositories[key]);
     },
   },
   computed: {
-    query() {
+    queryMessage() {
       const q = this.searchQuery;
       return q && q !== '' ?
         `'${q}'` : 'your query';

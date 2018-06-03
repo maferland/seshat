@@ -70,7 +70,7 @@ export default {
 
       const repository = response.data.repository;
       EventBus.$emit('onRepositoryAdded', repository);
-      EventBus.$emit('onSnackbarDisplayed', `Added ${repository.nameWithOwner}`);
+      EventBus.$emit('onSnackbarDisplayed', `Adding ${repository.nameWithOwner}`);
     },
   },
 };

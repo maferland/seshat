@@ -1,6 +1,6 @@
 <template>
     <form class="pure-form pure-form-aligned">
-      <fieldset @keyup.enter="searchIssue">
+      <fieldset @keyup="searchIssue">
         <legend>
           <h2>Search for your issues</h2>
         </legend>
@@ -9,7 +9,6 @@
               id="query"
               name="query"
               type="text"
-              v-validate="'required'"
               v-model="query">
         </span>
         <span class="pure-controls">
@@ -36,8 +35,6 @@ export default {
   },
   methods: {
     async searchIssue() {
-      const result = await this.$validator.validate();
-      if (!result) { return; }
       EventBus.$emit('onIssueSearched', this.query);
     },
   },

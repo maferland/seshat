@@ -25,6 +25,7 @@ new Vue({
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
+      // TODO handle disconnection
       // eslint-disable-next-line
       console.log('state changed');
       EventBus.$emit('onAuthStateChanged', user);

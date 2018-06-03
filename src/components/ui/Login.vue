@@ -2,7 +2,7 @@
   <div class="container">
     <form class="pure-form">
         <legend>
-          <h2>Sign in to unlock Seshat's power</h2>
+          <h2>Sign in to unlock Seshat's powers</h2>
         </legend>
     </form>
     <div id="firebaseui-auth-container"></div>
