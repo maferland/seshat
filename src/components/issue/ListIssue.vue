@@ -35,16 +35,12 @@ export default {
       this.searchIssue();
     });
 
-    this.init();
+    this.initRepository();
   },
   beforeDestroy() {
     EventBus.$off('onIssueSearched');
   },
   methods: {
-    async init() {
-      await this.initRepository();
-      this.searchIssue('');
-    },
     async searchIssue() {
       const response = await fetchIssue(this.repositories, this.searchQuery);
 
@@ -69,6 +65,7 @@ export default {
         const val = snapshot.val();
         this.repositories = val ?
           this.arrayify(val.repository) : {};
+        this.searchIssue();
       });
     },
     arrayify(repositories) {

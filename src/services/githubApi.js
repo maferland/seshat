@@ -33,6 +33,7 @@ const buildSearchRequest = (repositories, searchQuery) => {
   repositories.forEach((repository) => {
     const key = repository.nameWithOwner.replace('/', '');
     const newRequest = `{
+    const key = repository.nameWithOwner.replace(/[^\w\s]/gi, '');
       ${key}: search(first: 10, type: ISSUE, query: "repo:${repository.nameWithOwner} ${searchQuery}") {
         nodes {
           ... on Issue {

@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     async searchIssue() {
-      EventBus.$emit('onIssueSearched', this.query);
+      EventBus.$emit('onIssueSearched', this.query || "");
     },
   },
 };
