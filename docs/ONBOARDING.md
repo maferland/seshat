@@ -8,7 +8,7 @@ Once you are able to run the project here is are few tips on how to get going.
 - [Repository architecture](#repository-architecture)
 - [Running project tasks](#running-project-tasks)
 - [Workflow](#workflow)
-- [Automated](#automated)
+- [Automated](#automated-testing)
 
 ## Repository architecture
 “how is the code organized, and why?”
