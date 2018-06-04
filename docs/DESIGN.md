@@ -8,6 +8,7 @@ Several design decisions were taken during Seshat's creation. The following will
 - [Vue](#vue)
 - [Github API](#github-api)
 - [EventBus](#eventbus)
+- [Design](#design)
 
 ## Project structure
 
@@ -54,6 +55,8 @@ I won't talk too much about the API. But I'll expand my thoughts about the usage
 - I have not used the server side paging at all. This is bad. As I said before, I am making a call on every character typed. This mean that is I have 30 repositories saved, and I make a 10 character query I will make 10 call, each of those having 30 queries bundled in them. Each query can return up to 10 issues (as of now). The resulting payload will be up to `10 x 30 x 10 x [the weight of an issue]`. This can get big quite fast. There is also a relevance problem, since it takes 10 results per repositories without caring about relevance. It might be in our users best interest to have 100 issues from the same repository if they are a better match.
 - I am not using the search query properly. Right now, Seshat is asking for `REPOSITORY` or `ISSUE` with a query string. However, the assignment asked to search for the issue title only. The queries are probably searching through the whole issue (I cannot be sure of this detail since the documentation was unexpectedly opaque). It leads to awkward results, without the typed keyword or without results at all. I would need a better understanding of the inner workings of the Github API to improve the situation.
 
+I would like to state that the number of calls I am doing is a trade-off for a better user experience. Since I'm doing this much call it allows for a fluid search experience where the results are flowing in as soon as the user starts typing. Fixing the actual implementation (or adding a small timeout before doing a query) might improve the performance without losing too much quality of life.
+
 ## EventBus
 
 Using the EventBus solution is easier than using a state management library such as vuex. But it's also much less powerful. I've decided to skip vuex in this project because of the scope. I thought it was quite simple and didn't require all the firepower brought by vuex.
@@ -63,3 +66,9 @@ Looking forward I think it was the right decision. However, I could have built t
 **BUT**, the price of having my components split the way they currently are is additional complexity in my views. It would have forced me to use the view as a state manager for its components
 
 The way I have divided my components is not perfect (and there is a little too much redundancy between some of them). It could be improved. However, I believe the actual complexity is totally admissible.
+
+## Design
+
+I would like to touch briefly about the UI design I have created for the App. I have built Seshat mostly mobile first. I have created an interesting app for both mobile and desktop. I went for a simple and not too flashy color palette to create a `productivity tool` feeling.
+
+I focused on user experience, trying to reduce the possible confusion as much as possible (I did so by minimizing the number of links, buttons, and input). I also kept a coherent theme throughout the app.
