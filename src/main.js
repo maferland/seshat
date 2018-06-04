@@ -10,7 +10,7 @@ import router from './router';
 
 import config from './helpers/firebaseConfig';
 
-Vue.config.productionTip = true;
+Vue.config.productionTip = false;
 
 Vue.use(VeeValidate, {
   events: '',
@@ -25,9 +25,6 @@ new Vue({
   created() {
     firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
-      // TODO handle disconnection
-      // eslint-disable-next-line
-      console.log('state changed');
       EventBus.$emit('onAuthStateChanged', user);
     });
   },

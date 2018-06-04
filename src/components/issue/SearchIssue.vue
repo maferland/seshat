@@ -35,13 +35,13 @@ export default {
   },
   methods: {
     async searchIssue() {
-      EventBus.$emit('onIssueSearched', this.query || "");
+      EventBus.$emit('onIssueSearched', this.query || '');
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .search-bar {
     width: 50%;
 

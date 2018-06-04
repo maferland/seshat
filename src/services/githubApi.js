@@ -3,37 +3,40 @@ import githubConfig from '@/helpers/githubConfig';
 const endpoint = 'https://api.github.com/graphql';
 
 const query = async (request) => {
-  const body = JSON.stringify({ query: request });
+  const body = { query: request };
   return fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `bearer ${githubConfig.apiKey}`,
     },
-    body,
+    body: JSON.stringify(body),
   })
     .then(res => res.json())
     .catch(() => false);
 };
 
-const fetchRepository = async (name, owner) => {
+const searchRepository = async (searchQuery) => {
   const request = `{
-    repository(name: "${name}", owner: "${owner}") {
-      name
-      nameWithOwner
-      description
-      createdAt
+    search(first: 3, type: REPOSITORY, query: "${searchQuery}") {
+      nodes {
+        ... on Repository {
+          name
+          nameWithOwner
+          description
+          createdAt
+        }
+      }
     }
   }`;
   return query(request);
 };
 
-const buildSearchRequest = (repositories, searchQuery) => {
+const buildSearchIssueRequest = (repositories, searchQuery) => {
   const request = [];
   repositories.forEach((repository) => {
-    const key = repository.nameWithOwner.replace('/', '');
-    const newRequest = `{
     const key = repository.nameWithOwner.replace(/[^\w\s]/gi, '');
+    const newRequest = `
       ${key}: search(first: 10, type: ISSUE, query: "repo:${repository.nameWithOwner} ${searchQuery}") {
         nodes {
           ... on Issue {
@@ -51,15 +54,15 @@ const buildSearchRequest = (repositories, searchQuery) => {
           }
         }
       }
-    }`;
+    `;
     request.push(newRequest);
   });
-  return request.join();
+  return `{${request.join('')}}`;
 };
 
-const fetchIssue = async (repositories, searchQuery) => {
-  const request = buildSearchRequest(repositories, searchQuery);
+const searchIssue = async (repositories, searchQuery) => {
+  const request = buildSearchIssueRequest(repositories, searchQuery);
   return query(request);
 };
 
-export { fetchRepository, fetchIssue };
+export { searchRepository, searchIssue };

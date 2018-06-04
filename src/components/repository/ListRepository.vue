@@ -7,21 +7,21 @@
       <p>Looks like you have no tracked repositories</p>
       <p>Try adding one</p>
     </div>
-    <repository-item v-for="repository in repositories"
+    <repository-delete-item v-for="repository in repositories"
         :key="repository.nameWithOwner"
         :repository="repository">
-    </repository-item>
+    </repository-delete-item>
   </form>
 </template>
 
 <script>
 import EventBus from '@/events/eventBus';
-import RepositoryItem from '@/components/repository/RepositoryItem';
+import RepositoryDeleteItem from '@/components/repository/RepositoryDeleteItem';
 import * as databaseApi from '@/services/databaseApi';
 
 export default {
   name: 'list-repository',
-  components: { RepositoryItem },
+  components: { RepositoryDeleteItem },
   data() {
     return {
       repositories: [],

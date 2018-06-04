@@ -47,6 +47,19 @@ export default {
     align-items: flex-start;
     margin: 5vh 4vw;
 
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
     &--title {
       color: rgba(44, 62, 80, .8);
       text-align: left;

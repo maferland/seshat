@@ -16,8 +16,9 @@
 <script>
 import EventBus from '@/events/eventBus';
 import IssueItem from '@/components/issue/IssueItem';
-import { fetchIssue } from '@/services/githubApi';
+import { searchIssue } from '@/services/githubApi';
 import { listenRepository } from '@/services/databaseApi';
+import arrayify from '@/helpers/utils';
 
 export default {
   name: 'list-issue',
@@ -42,7 +43,7 @@ export default {
   },
   methods: {
     async searchIssue() {
-      const response = await fetchIssue(this.repositories, this.searchQuery);
+      const response = await searchIssue(this.repositories, this.searchQuery);
 
       if (response && response.errors) {
         return;
@@ -64,13 +65,9 @@ export default {
       listenRepository((snapshot) => {
         const val = snapshot.val();
         this.repositories = val ?
-          this.arrayify(val.repository) : {};
+          arrayify(val.repository) : {};
         this.searchIssue();
       });
-    },
-    arrayify(repositories) {
-      return Object.keys(repositories)
-        .map(key => repositories[key]);
     },
   },
   computed: {

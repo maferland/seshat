@@ -78,7 +78,7 @@ export default {
     justify-content: space-between;
     position: sticky;
     top: 0;
-    height:50px;
+    height: 50px;
     background-color: rgba(255,255,255,.9);
   }
 

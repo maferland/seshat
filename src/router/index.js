@@ -5,7 +5,6 @@ import Repository from '@/views/Repository';
 import Issue from '@/views/Issue';
 
 import Login from '@/components/ui/Login';
-import LoginSuccess from '@/components/ui/LoginSuccess';
 
 Vue.use(Router);
 
@@ -24,18 +23,13 @@ const router = new Router({
       component: Login,
     },
     {
-      path: '/success',
-      name: 'Success',
-      component: LoginSuccess,
-    },
-    {
-      path: '#repositories',
+      path: '/repositories',
       name: 'Repositories',
       secure: true,
       component: Repository,
     },
     {
-      path: '#issues',
+      path: '/issues',
       name: 'Issues',
       secure: true,
       component: Issue,

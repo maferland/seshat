@@ -1,17 +1,17 @@
 <template>
   <div class='container'>
-    <add-repository/>
+    <search-repository/>
     <list-repository/>
   </div>
 </template>
 
 <script>
-import AddRepository from '@/components/repository/AddRepository';
+import SearchRepository from '@/components/repository/SearchRepository';
 import ListRepository from '@/components/repository/ListRepository';
 
 export default {
   name: 'Repository',
-  components: { AddRepository, ListRepository },
+  components: { SearchRepository, ListRepository },
 };
 </script>
 
