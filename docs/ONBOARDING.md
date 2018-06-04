@@ -1,7 +1,7 @@
 # Onboarding
 
-You want to get involved on this project?
-Once you are able to run the project here is a few tips on how to get going.
+Do you want to get involved in this project?
+Once you are able to run the project here is are few tips on how to get going.
 
 # Table of content
 
@@ -50,9 +50,9 @@ The various command you will need to run the project.
 ## Workflow
 “I wrote code, how does it get from here to there?”
 
-A good starting point to understand the project is to take a look at the [router](src/router.index.js). You will be able to understand the path taken by Seshat. Then, you can drill down the views until you reach the components where most of the stuff happend.
+A good starting point to understand the project is to take a look at the [router](src/router.index.js). You will be able to understand the path taken by Seshat. Then, you can drill down the views until you reach the components where most of the stuff happened.
 
-The only bit of black magic 🎩 in the app is the usage of the EventBus. We use it to propagate information to other components without using a libraries such as vuex.
+The only bit of black magic 🎩 in the app is the usage of the EventBus. We use it to propagate information to other components without using a library such as vuex.
 
 If you ever see one of the following:
 
@@ -62,7 +62,7 @@ EventBus.off('myCustomEventName');
 EventBus.$emit('onRepositoryAdded', repository);
 ```
 
-It means we are using the EventBus to propagate state and/or data. You should search for where the key is listening/emiting to trace what is going on.
+It means we are using the EventBus to propagate state and/or data. You should search for where the key is listening/emitting to trace what is going on.
 
 ## Automated testing
 “how do I write / run them, and why should care?”

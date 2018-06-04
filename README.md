@@ -4,7 +4,7 @@ Seshat is an easy-to-use yet powerful Github issue aggregator.
 
 # Table of content
 
-- [TODO](docs/TODO.md)
+- [Improvements](docs/IMPROVEMENTS.md)
 - [Design](docs/DESIGN.md)
 - [Onboarding](docs/ONBOARDING.md)
 
@@ -49,7 +49,7 @@ The various command you will need to run the project.
 
 # Deployment
 
-Seshat is built on firebase. You can create your own firebase project and edit `helpers/firebaseConfig.js` if you want to to deploy it by yourself.
+Seshat is built on firebase. You can create your own firebase project and edit `helpers/firebaseConfig.js` if you want to deploy it by yourself.
 
 You will need be required to install firebase tools if you want to deploy the project.
 

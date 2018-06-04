@@ -1,4 +1,4 @@
-# TODO
+# Improvements
 
 ## Things that could be improved
 
@@ -6,7 +6,7 @@
 - Optimise graphql requests made to github (See design decision about the _search_)
 - Page issues and repositories requests
 - Setup github login to access private repositories
-  - Right now, the github api key is my own
+  - Right now, the github api key a private account-bound key
   - It's not something we want to deploy in production
 - Improve performances
   - Cache requests (with _service workers_)
