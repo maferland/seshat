@@ -3,6 +3,7 @@
 Several design decisions were taken during Seshat's creation. The following will give insight into the reason behind the most important decisions.
 
 # Table of content
+
 - [Project structure](#project-structure)
 - [Firebase](#firebase)
 - [Vue](#vue)
