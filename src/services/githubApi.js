@@ -13,7 +13,10 @@ const query = async (request) => {
     body: JSON.stringify(body),
   })
     .then(res => res.json())
-    .catch(() => false);
+    // eslint-disable-next-line
+    .catch((err) => {
+      return { errors: err };
+    });
 };
 
 const searchRepository = async (searchQuery) => {
@@ -29,6 +32,7 @@ const searchRepository = async (searchQuery) => {
       }
     }
   }`;
+
   return query(request);
 };
 

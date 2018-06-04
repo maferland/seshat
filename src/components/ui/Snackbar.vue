@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       visible: false,
-      message: undefined,
+      message: '',
     };
   },
   created() {
@@ -24,21 +24,22 @@ export default {
       this.visible = true;
       setTimeout(() => {
         this.visible = false;
-        this.message = undefined;
+        this.message = '';
       }, 3000);
     },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/styles/colors.scss';
 /* https://codepen.io/Muhammad_Adil93/pen/rLaLqB?editors=0100 */
 
 #snackbar {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
-    background-color: rgba(44, 62, 80, .8);
+    background-color: $primaryDark;
     border-radius: 2px;
     color: #fff;
     text-align: center;

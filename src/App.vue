@@ -17,12 +17,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/colors.scss";
+
 #app {
-  font-family: 'Raleway', 'Open Sans', Arial, sans-serif;
+  font-family: "Raleway", "Open Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: rgba(44, 62, 80, .8);
+  color: $primaryDark;
   margin-top: 30px;
 }
 
@@ -34,7 +36,7 @@ export default {
   border-radius: 2px;
 }
 
-.pure-form-aligned{
+.pure-form-aligned {
   .pure-controls {
     margin-left: 0;
     margin-right: 0;

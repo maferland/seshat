@@ -86,6 +86,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "@/assets/styles/colors.scss";
+
 .hero {
   height: 450px;
   margin: 30px 0;
@@ -99,7 +101,7 @@ export default {
 
   &--overlay {
     height: 100%;
-    background-color: rgba(44, 62, 80, 0.7);
+    background-color: $primaryDarkOverlay;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -140,18 +142,18 @@ export default {
 }
 
 .pure-button {
-  border: #FFF 1px solid;
+  border: #fff 1px solid;
   background-color: transparent;
 }
 
 .pure-button:hover {
-  border: #FFF 1px solid;
-  background: #FFF;
-  color: rgba(44, 62, 80, .8);
+  border: #fff 1px solid;
+  background: #fff;
+  color: $primaryDark;
 }
 
 .link {
   text-decoration: underline;
-  color: #FFF;
+  color: #fff;
 }
 </style>

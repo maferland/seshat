@@ -21,10 +21,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.input-label {
-  border: 1px solid black;
-  margin-top: 5px;
-  margin-right: 5px;
-  padding: 3px 5px;
-}
 </style>

@@ -1,6 +1,6 @@
 # TODO
 
-Voici les éléments qui pourraient être fait ou amélioré
+## Éléments qui pourraient être fait ou amélioré
 
 - Utilisé une librairie de gestion de l'état (vuex)
 - Optimiser les requêtes à l'api de github (voir décision de design sur le _search_)
@@ -16,3 +16,8 @@ Voici les éléments qui pourraient être fait ou amélioré
   - Nous pourrions ajouter un délais avant de lancer les recherches pour réduire le nombre d'appel inutile.
 - Créer une page de profil utilisateur
 - Internationaliser le site
+
+## Éléments qui était initialement un TODO mais que j'ai eu le temps de faire
+
+- ~~Extraire les couleurs du style vers un fichier `color.scss` ou `variables.scss`~~
+- ~~Créer un alias pour les assets~~

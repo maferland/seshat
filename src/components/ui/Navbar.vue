@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import EventBus from '@/events/eventBus';
 
 export default {
@@ -59,10 +60,13 @@ export default {
   },
   methods: {
     signOut() {
-      firebase.auth().signOut()
+      firebase
+        .auth()
+        .signOut()
         .then(() => {
           this.$router.push('/');
-        }).catch((err) => {
+        })
+        .catch((err) => {
           // eslint-disable-next-line no-console
           console.error(err);
           EventBus.$emit('onSnackbarDisplayed', 'Sign out failed...');
@@ -73,28 +77,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .pure-menu {
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    height: 50px;
-    background-color: rgba(255,255,255,.9);
-  }
+@import "@/assets/styles/colors.scss";
+.pure-menu {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 50px;
+  background-color: $menuBackground;
+}
 
-  .pure-menu-heading {
-    font-weight: 500;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-    background: lightgray;
-  }
+.pure-menu-heading {
+  font-weight: 500;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background: lightgray;
+}
 
-  .pure-menu-link {
-    display: flex;
-    align-items: center;
-  }
+.pure-menu-link {
+  display: flex;
+  align-items: center;
+}
 
-  .pure-menu-item {
-    display: inline-flex;
-  }
+.pure-menu-item {
+  display: inline-flex;
+}
 </style>

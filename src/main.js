@@ -3,7 +3,8 @@
 import 'purecss';
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import EventBus from '@/events/eventBus';
 import App from './App';
 import router from './router';

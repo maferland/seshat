@@ -27,32 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .repository-item {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5vh 4vw;
-
-    &--title {
-      color: rgba(44, 62, 80, 0.8);
-      font-weight: 600;
-      font-size: 30px;
-    }
-
-    -webkit-animation: fadein 0.5s;
-    animation: fadein 0.5s;
-
-    @-webkit-keyframes fadein {
-        from {bottom: 0; opacity: 0;}
-        to {bottom: 30px; opacity: 1;}
-    }
-
-    @keyframes fadein {
-        from {bottom: 0; opacity: 0;}
-        to {bottom: 30px; opacity: 1;}
-    }
-  }
+  @import '@/assets/styles/repositoryItem.scss';
 
   .repository-information {
     display: flex;
@@ -63,6 +38,6 @@ export default {
 
   .repository-add {
     font-size: 42px;
-    color: rgba(58, 135, 58, 0.579);
+    color: $success;
   }
 </style>

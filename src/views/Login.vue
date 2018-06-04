@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import firebaseui from 'firebaseui';
 
 export default {
@@ -35,7 +36,7 @@ export default {
 }
 
 .ornament {
-  background: url("../../assets/ornament.png") no-repeat;
+  background: url("../assets/ornament.png") no-repeat;
   background-position: center center;
   background-size: 300px 150px;
   height: 150px;

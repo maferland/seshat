@@ -4,7 +4,7 @@ import Home from '@/views/Home';
 import Repository from '@/views/Repository';
 import Issue from '@/views/Issue';
 
-import Login from '@/components/ui/Login';
+import Login from '@/views/Login';
 
 Vue.use(Router);
 

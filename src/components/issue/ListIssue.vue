@@ -53,28 +53,38 @@ export default {
     },
     parseIssues(data) {
       const newIssues = [];
+
       Object.keys(data).forEach((repository) => {
         const issues = data[repository];
         if (!issues.nodes) { return; }
+
         const validIssues = issues.nodes.filter(issue => Object.keys(issue).length !== 0);
         newIssues.push(...validIssues);
       });
+
       return newIssues;
     },
     initRepository() {
       listenRepository((snapshot) => {
-        const val = snapshot.val();
-        this.repositories = val ?
-          arrayify(val.repository) : {};
-        this.searchIssue();
+        try {
+          const val = snapshot.val();
+
+          this.repositories = val ?
+            arrayify(val.repository) : {};
+
+          this.searchIssue();
+        } catch (err) {
+          // eslint-disable-next-line
+          console.error(err);
+        }
       });
     },
   },
   computed: {
     queryMessage() {
-      const q = this.searchQuery;
-      return q && q !== '' ?
-        `'${q}'` : 'your query';
+      const query = this.searchQuery;
+      return query && query !== '' ?
+        `'${query}'` : 'your query';
     },
   },
 };

@@ -1,0 +1,38 @@
+@import '@/assets/styles/colors.scss';
+
+.repository-item {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh 4vw;
+
+  &--title {
+    color: $primaryDark;
+    font-weight: 600;
+    font-size: 30px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 20px;
+    }
+  }
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+
+  @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+  }
+
+  @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+  }
+
+  .repository-information {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
