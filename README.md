@@ -1,34 +1,71 @@
-![Fizzer](logo.png)
+# Seshat
 
-# Test
-Given a need to easily track and search Github issues, create a web app that allows anyone to search for issues on selected Github repositories.
+Seshat is an easy-to-use yet powerful Github issue aggregator.
 
+# Table of content
 
-### Specs
+- [TODO](docs/TODO.md)
+- [Design](docs/DESIGN.md)
+- [Onboarding](docs/ONBOARDING.md)
 
-- As a visitor I can add a repository to track to the app
-- As a visitor I can remove a tracked repository from the app
-- As a visitor I can search for issues containing the search term (in the title) for the tracked repositories
+# Getting started
 
-### Prerequisites
-- Handle all relevant cases
-- Provide a clear explanation of your approach and design choices (while submitting your Pull Request)
-- Provide a proper `README.md`:<br/>
-- Explaing how to setup and run your code<br/>
-- Including all informations you feel that may be useful for a seamless coworker on-boarding
-- Be publicly accessible (deploy it on Heroku or your favorite host)
-- Have a beautiful name for your app ;)
+## Prerequisites
 
-### Workflow
-- Use the framework of your choice between React, Angular or Vue.js
-- Create a new branch
-- Commit and push to this branch
-- Submit a pull request once you have finished
+- nodejs
+- npm (or yarn)
 
-We will then write a review for your pull request!
+## Installing
 
-### Bonus
+Getting the code
 
-- Have a great UX / UI
-- Testing of your web app
-- Add whatever you think is necessary to make the app awesome ✨
+```bash
+git clone git@github.com:fizzerpostcards/marc-antoine-technical-test.git
+cd marc-antoine-technical-test/
+```
+
+With NPM
+
+```bash
+npm install
+npm run dev
+```
+
+With Yarn
+
+```bash
+yarn
+yarn run dev
+```
+
+## Commands
+
+The various command you will need to run the project.
+
+- Build -> `yarn run build`
+- Deploy -> `yarn run deploy`
+- Run -> `yarn run develop`
+- Lint -> `yarn run lint`
+
+# Deployment
+
+Seshat is built on firebase. You can create your own firebase project and edit `helpers/firebaseConfig.js` if you want to to deploy it by yourself.
+
+You will need be required to install firebase tools if you want to deploy the project.
+
+```bash
+npm install -g firebase-tools
+firebase login
+```
+
+With NPM
+
+```bash
+npm run deploy
+```
+
+With Yarn
+
+```bash
+yarn run deploy
+```
