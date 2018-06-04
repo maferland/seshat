@@ -10,7 +10,6 @@ Vue.use(Router);
 
 const router = new Router({
   linkActiveClass: 'pure-menu-selected',
-  mode: 'history',
   routes: [
     {
       path: '/',

@@ -47,7 +47,7 @@
       <h3 class="about--title">Monitor</h3>
         <div class="about--sub-container">
           <span class="about--description">
-            Seshat allows you to stay up-to-date with your maintainer duty.
+            Seshat allows you to stay up-to-date with your maintainer duties.
           </span>
           <img class="about--img" src="../assets/heartbeat.png"/>
         </div>
