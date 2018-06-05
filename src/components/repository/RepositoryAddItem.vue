@@ -39,5 +39,6 @@ export default {
   .repository-add {
     font-size: 42px;
     color: $success;
+    cursor: pointer;
   }
 </style>

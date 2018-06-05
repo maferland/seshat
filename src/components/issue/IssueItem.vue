@@ -5,7 +5,7 @@
     </i>
 
     <div class="issue-item--container">
-      <a class='issue-item--title' :href="issue.url">
+      <a class='issue-item--title' :href="issue.url" target="_blank" rel="noopener">
         {{ issue.title }}
       </a>
 

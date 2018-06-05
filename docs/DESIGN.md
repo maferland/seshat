@@ -38,6 +38,8 @@ There are four major reasons why I have chosen Firebase.
 
 The biggest flaw in my approach with Firebase is that I don't try too hard to prevent network call. I didn't enable firebase offline capabilities and I am not even trying to cache data and utilize service workers to optimize Seshat. Those extra steps could help us make a progressive web app feeling and allow the app to be used offline.
 
+Also, we might want to retry failed firebase call. I have silenced the error for now but it's not viable on the long run.
+
 ## Vue
 
 This time, no big deal. I have chosen Vue because it's the framework I was the most familiar with. But there are a couple Vue design decisions which I can get behind.

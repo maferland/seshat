@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import Router from 'vue-router';
 import Home from '@/views/Home';
 import Repository from '@/views/Repository';
@@ -12,6 +14,10 @@ const router = new Router({
   linkActiveClass: 'pure-menu-selected',
   routes: [
     {
+      path: '*',
+      redirect: '/',
+    },
+    {
       path: '/',
       name: 'Home',
       component: Home,
@@ -24,16 +30,28 @@ const router = new Router({
     {
       path: '/repositories',
       name: 'Repositories',
-      secure: true,
       component: Repository,
+      meta: {
+        secure: true,
+      },
     },
     {
       path: '/issues',
       name: 'Issues',
-      secure: true,
       component: Issue,
+      meta: {
+        secure: true,
+      },
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser;
+  const secure = to.matched.some(record => record.meta.secure);
+
+  if (secure && !currentUser) next('login');
+  else next();
 });
 
 export default router;

@@ -8,18 +8,16 @@ const buildPath = (nameWithOwner) => {
 };
 
 const refUser = () => {
-  const userId = firebase.auth().currentUser.uid;
-  return firebase.database().ref(`users/${userId}`);
+  const user = firebase.auth().currentUser;
+  return user ? firebase.database().ref(`users/${user.uid}`) : undefined;
 };
 
 const listenRepository = (callback) => {
   const user = refUser();
-  return user
-    .on('value', callback, (err) => {
-      // eslint-disable-next-line no-console
-      console.error(err);
-      callback([]);
-    });
+  if (!user) { return; }
+  user.on('value', callback, () => {
+    callback([]);
+  });
 };
 
 const fetchRepository = () => {

@@ -23,7 +23,7 @@
       </li>
       <li class="pure-menu-item">
         <a @click="signOut"
-          class="pure-menu-link">
+          class="pure-menu-link logout">
           Log out
         </a>
       </li>
@@ -101,5 +101,9 @@ export default {
 
 .pure-menu-item {
   display: inline-flex;
+}
+
+.logout {
+  cursor: pointer;
 }
 </style>

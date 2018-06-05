@@ -17,6 +17,7 @@
   - A simple solution would be to add a delay before triggering search action
 - Create a user profile section
 - Internationalize Seshat
+- Add retry for failed call
 
 ## Done
 

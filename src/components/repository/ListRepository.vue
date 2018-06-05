@@ -41,8 +41,12 @@ export default {
     },
     initRepositories() {
       databaseApi.listenRepository((snapshot) => {
-        const val = snapshot.val();
-        this.repositories = val ? val.repository : [];
+        try {
+          const val = snapshot.val();
+          this.repositories = val ? val.repository : [];
+        } catch (error) {
+          this.repositories = [];
+        }
       });
     },
   },
@@ -50,8 +54,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .missing {
-    font-size: 16px;
-    padding-top: 30px;
-  }
+.missing {
+  font-size: 16px;
+  padding-top: 30px;
+}
 </style>

@@ -74,8 +74,7 @@ export default {
 
           this.searchIssue();
         } catch (err) {
-          // eslint-disable-next-line
-          console.error(err);
+          // Dismiss firebase error
         }
       });
     },

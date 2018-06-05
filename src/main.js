@@ -11,8 +11,9 @@ import router from './router';
 
 import config from './helpers/firebaseConfig';
 
-Vue.config.productionTip = false;
 
+firebase.initializeApp(config);
+Vue.config.productionTip = false;
 Vue.use(VeeValidate, {
   events: '',
 });
@@ -24,7 +25,6 @@ new Vue({
   components: { App },
   template: '<App/>',
   created() {
-    firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged((user) => {
       EventBus.$emit('onAuthStateChanged', user);
     });

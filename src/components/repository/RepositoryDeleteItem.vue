@@ -32,5 +32,6 @@ export default {
   .repository-delete {
     font-size: 42px;
     color: $danger;
+    cursor: pointer;
   }
 </style>
