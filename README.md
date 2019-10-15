@@ -1,3 +1,5 @@
+*Note: This was an hiring test.*
+
 # Seshat
 
 Seshat is an easy-to-use yet powerful Github issues aggregator.
